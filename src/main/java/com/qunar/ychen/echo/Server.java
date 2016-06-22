@@ -27,10 +27,9 @@ public class Server extends HttpServlet {
             response = "{\"status\":0,\"message\":\"success\",\"data\":\"hello " + echo + "\"}";
             log("echo is " + echo + ", response is :" + response);
         }
+        response = response.concat(System.lineSeparator());
         resp.setContentType("application/json; charset=UTF-8");
-
         PrintWriter out = resp.getWriter();
-
         out.write(response);
     }
 
@@ -39,10 +38,9 @@ public class Server extends HttpServlet {
             throws ServletException, IOException {
 
         String response = req.getReader().readLine();
+        response = response.concat(System.lineSeparator());
         resp.setContentType("application/json; charset=UTF-8");
-
         PrintWriter out = resp.getWriter();
-
         out.write(response);
     }
 }

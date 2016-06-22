@@ -7,13 +7,19 @@ Java7 Servlet3 Maven3
 
 ## 运行
 
-运行 `mvn jetty:run`
+`mvn jetty:run`
 
 ## 访问 hello jetty
 
-访问 `curl localhost:8080`
+`curl localhost:8080`
 
 ## 访问 echo
 
-访问 `curl localhost:8080/echo?name=jetty`
+`curl localhost:8080/echo?name=jetty`
+
+## 访问 echo post
+
+`## 访问 echo
+ 
+ 访问 `curl -sX POST --data @employee.json localhost:8080/echo`
 
