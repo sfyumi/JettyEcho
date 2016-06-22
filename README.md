@@ -11,9 +11,9 @@ Java7 Servlet3 Maven3
 
 ## 访问 hello jetty
 
-访问 `localhost:8080`
+访问 `curl localhost:8080`
 
 ## 访问 echo
 
-访问 `localhost:8080/echo?name=jetty`
+访问 `curl localhost:8080/echo?name=jetty`
 

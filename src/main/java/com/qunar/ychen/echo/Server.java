@@ -1,6 +1,3 @@
-/*
-* Copyright (c) 2015 Qunar.com. All Rights Reserved.
-*/
 package com.qunar.ychen.echo;
 
 import javax.servlet.ServletException;
