@@ -21,5 +21,5 @@ Java7 Servlet3 Maven3
 
 `## 访问 echo
  
- 访问 `curl -sX POST --data @employee.json localhost:8080/echo`
+ 访问 `curl -sX POST --data @person.json localhost:8080/echo`
 
