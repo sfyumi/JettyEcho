@@ -36,4 +36,16 @@ public class Server extends HttpServlet {
 
         out.write(response);
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+
+        String response = req.getReader().readLine();
+        resp.setContentType("application/json; charset=UTF-8");
+
+        PrintWriter out = resp.getWriter();
+
+        out.write(response);
+    }
 }
