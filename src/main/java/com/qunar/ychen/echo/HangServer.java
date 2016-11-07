@@ -13,7 +13,7 @@ import java.io.PrintWriter;
 /**
  * ychen  Date: 12/8/15 Time: 4:55 PM
  */
-@WebServlet("/echo")
+@WebServlet("/hang")
 public class HangServer extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
