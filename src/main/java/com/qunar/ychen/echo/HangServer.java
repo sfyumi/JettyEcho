@@ -22,7 +22,7 @@ public class HangServer extends HttpServlet {
         sleep = SleepUtil.sleep(sleep);
 
 
-        String response = "{\"status\":0,\"message\":\"success\",\"data\":\"sleep" + sleep + "millis" + "\"}";
+        String response = "{\"status\":0,\"message\":\"success\",\"data\":\"sleep " + sleep + " millis" + "\"}";
         log("response is :" + response);
 
         response = response.concat(System.lineSeparator());
@@ -34,11 +34,6 @@ public class HangServer extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-
-        String response = req.getReader().readLine();
-        response = response.concat(System.lineSeparator());
-        resp.setContentType("application/json; charset=UTF-8");
-        PrintWriter out = resp.getWriter();
-        out.write(response);
+        doGet(req, resp);
     }
 }
