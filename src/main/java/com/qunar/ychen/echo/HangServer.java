@@ -19,7 +19,7 @@ public class HangServer extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         String sleep = req.getParameter("sleep");
-        SleepUtil.sleep(sleep);
+        sleep = SleepUtil.sleep(sleep);
 
 
         String response = "{\"status\":0,\"message\":\"success\",\"data\":\"sleep" + sleep + "millis" + "\"}";

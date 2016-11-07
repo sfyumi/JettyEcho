@@ -7,11 +7,19 @@ package com.qunar.ychen.utils;
  * ychen  Date: 11/7/16 Time: 3:22 PM
  */
 public class SleepUtil {
-    public static void sleep(String sleep) {
+    public static String sleep(String sleep) {
         try {
-            Thread.sleep(Long.parseLong(sleep));
+            Long sleepMillis = 1000l;
+            try {
+                sleepMillis = Long.parseLong(sleep);
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+            }
+            Thread.sleep(sleepMillis);
+            return String.valueOf(sleepMillis);
         } catch (InterruptedException e) {
             e.printStackTrace();
+            return "0";
         }
     }
 }
