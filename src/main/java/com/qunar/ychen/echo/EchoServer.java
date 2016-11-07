@@ -12,7 +12,7 @@ import java.io.PrintWriter;
  * ychen  Date: 12/8/15 Time: 4:55 PM
  */
 @WebServlet("/echo")
-public class Server extends HttpServlet {
+public class EchoServer extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
