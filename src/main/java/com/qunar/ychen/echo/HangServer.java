@@ -18,16 +18,21 @@ public class HangServer extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+        String requestTimeLine = "\"requestTime:\":\"" + System.currentTimeMillis() + "\",";
+
         String sleep = req.getParameter("sleep");
-        sleep = SleepUtil.sleep(sleep);
-
-
-        String response = "{\"status\":0,\"message\":\"success\",\"data\":\"sleep " + sleep + " millis" + "\"}";
-        log("response is :" + response);
-
-        response = response.concat(System.lineSeparator());
         resp.setContentType("application/json; charset=UTF-8");
         PrintWriter out = resp.getWriter();
+
+        sleep = SleepUtil.sleep(sleep);
+
+        String response = "{\"status\":0,\"message\":\"success\",\"data\":\"sleep " + sleep + " millis" + "\",";
+        response += requestTimeLine;
+        String responseTimeLine = "\"responseTime:\":\"" + System.currentTimeMillis() + "\"}";
+        response += responseTimeLine;
+        response = response.concat(System.lineSeparator());
+
+        log("response is :" + response);
         out.write(response);
     }
 
