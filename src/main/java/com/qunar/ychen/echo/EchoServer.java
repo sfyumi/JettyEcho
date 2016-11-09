@@ -43,7 +43,6 @@ public class EchoServer extends HttpServlet {
         while ((oneLine = bfr.readLine()) != null) {
             response = response.concat(oneLine);
         }
-        System.out.println(req.getParameterMap());
         response = response.concat(System.lineSeparator());
         resp.setContentType("application/json; charset=UTF-8");
         PrintWriter out = resp.getWriter();
