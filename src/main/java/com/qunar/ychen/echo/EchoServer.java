@@ -5,6 +5,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -36,8 +37,12 @@ public class EchoServer extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-
-        String response = req.getReader().readLine();
+        BufferedReader bfr = req.getReader();
+        String oneLine;
+        String response = "";
+        while ((oneLine = bfr.readLine()) != null) {
+            response = response.concat(oneLine);
+        }
         response = response.concat(System.lineSeparator());
         resp.setContentType("application/json; charset=UTF-8");
         PrintWriter out = resp.getWriter();
