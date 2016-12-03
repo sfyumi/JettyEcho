@@ -8,6 +8,7 @@ Java7 Servlet3 Maven3
 ## 运行
 
 `mvn jetty:run`
+`-Djetty.port=80`
 
 ## 访问 hello jetty
 
