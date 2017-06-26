@@ -30,7 +30,7 @@ public class Add extends HttpServlet {
         } else {
             Integer ia = Integer.parseInt(a);
             Integer ib = Integer.parseInt(b);
-            response = "{\"status\":0,\"message\":\"success\",\"data\":\"hello " + (ia + ib) + "\"}";
+            response = "{\"status\":0,\"message\":\"success\",\"data\":\"a + b is " + (ia + ib) + "\"}";
             log("echo is " + (ia + ib) + ", response is :" + response);
         }
         response = response.concat(System.lineSeparator());
