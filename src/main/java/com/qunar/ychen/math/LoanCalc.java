@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
 import java.util.Objects;
 
 /**
@@ -25,13 +26,16 @@ public class LoanCalc extends HttpServlet {
             a = "20";
         }
         Integer total = Integer.parseInt(a);
+        BigDecimal totalLoan = BigDecimal.valueOf(total).multiply(BigDecimal.valueOf(1000)).setScale(2, BigDecimal.ROUND_HALF_UP);
+
         log("req is:" + total);
         String response;
 
+
         // 36 0.5%
-        int profit = total * 36 * 50;
+        BigDecimal profit = totalLoan.multiply(BigDecimal.valueOf(1800));
         log("profit is:" + profit);
-        double payPerMonth = (total*10000 + profit) * 1.0 / 36;
+        BigDecimal payPerMonth = profit.add(totalLoan).divide(BigDecimal.valueOf(36));
 
         response = "{\"status\":0,\"message\":\"success\",\"data\":\"" + payPerMonth + "\"}";
         log("response is:" + response);
