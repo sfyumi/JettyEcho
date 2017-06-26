@@ -26,16 +26,16 @@ public class LoanCalc extends HttpServlet {
             a = "20";
         }
         Integer total = Integer.parseInt(a);
-        BigDecimal totalLoan = BigDecimal.valueOf(total).multiply(BigDecimal.valueOf(1000)).setScale(2, BigDecimal.ROUND_HALF_UP);
+        BigDecimal totalLoan = BigDecimal.valueOf(total).multiply(BigDecimal.valueOf(10000)).setScale(2, BigDecimal.ROUND_HALF_UP);
 
-        log("req is:" + total);
+        log("req is:" + totalLoan);
         String response;
 
 
         // 36 0.5%
-        BigDecimal profit = totalLoan.multiply(BigDecimal.valueOf(1800));
+        BigDecimal profit = totalLoan.multiply(BigDecimal.valueOf(0.18)).setScale(2, BigDecimal.ROUND_HALF_UP);
         log("profit is:" + profit);
-        BigDecimal payPerMonth = profit.add(totalLoan).divide(BigDecimal.valueOf(36));
+        BigDecimal payPerMonth = profit.add(totalLoan).divide(BigDecimal.valueOf(36), BigDecimal.ROUND_HALF_UP);
 
         response = "{\"status\":0,\"message\":\"success\",\"data\":\"" + payPerMonth + "\"}";
         log("response is:" + response);
